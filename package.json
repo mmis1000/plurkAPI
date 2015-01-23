@@ -1,0 +1,26 @@
+{
+  "name": "plurkAPI",
+  "version": "0.0.1",
+  "description": "unofficial plurk api lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mmis1000/plurkAPI.git"
+  },
+  "keywords": [
+    "plurk",
+    "api"
+  ],
+  "author": "mmis1000",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmis1000/plurkAPI/issues"
+  },
+  "homepage": "https://github.com/mmis1000/plurkAPI",
+  "dependencies": {
+    "coffee-script": "^1.8.0"
+  }
+}
