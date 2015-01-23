@@ -5,7 +5,7 @@ an unofficial plurk api lib
 
 usage
 
-```
+```javascript
     var PlurkAPI = require("plurkAPI")
     var api = new PlurkAPI({
       "appKey"       : "xxxxxxxxxxxx",
