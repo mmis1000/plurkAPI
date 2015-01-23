@@ -56,31 +56,31 @@ APIList.add '/Profile/getPublicProfile',        ['user_id']
 
 #Profile
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
-APIList.add '/FriendsFans/getFriendsByOffset'   ['user_id']
-APIList.add '/FriendsFans/getFansByOffset'      ['user_id']
+APIList.add '/FriendsFans/getFriendsByOffset',  ['user_id']
+APIList.add '/FriendsFans/getFansByOffset',     ['user_id']
 APIList.add '/FriendsFans/getFollowingByOffset'
-APIList.add '/FriendsFans/becomeFriend'         ['friend_id']
-APIList.add '/FriendsFans/removeAsFriend'       ['friend_id']
-APIList.add '/FriendsFans/becomeFan'            ['fan_id']
-APIList.add '/FriendsFans/setFollowing'         ['user_id', 'follow']
+APIList.add '/FriendsFans/becomeFriend',        ['friend_id']
+APIList.add '/FriendsFans/removeAsFriend',      ['friend_id']
+APIList.add '/FriendsFans/becomeFan',           ['fan_id']
+APIList.add '/FriendsFans/setFollowing',        ['user_id', 'follow']
 APIList.add '/FriendsFans/getCompletion'
 
 #Friends and fans
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
 APIList.add '/Alerts/getActive'
 APIList.add '/Alerts/getHistory'
-APIList.add '/Alerts/addAsFan'                  ['user_id']
-APIList.add '/Alerts/addAllAsFan'
+APIList.add '/Alerts/addAsFan',                 ['user_id']
+APIList.add '/Alerts/addAllAsFan',
 APIList.add '/Alerts/addAllAsFriends'
-APIList.add '/Alerts/addAsFriend'               ['user_id']
-APIList.add '/Alerts/denyFriendship'            ['user_id']
-APIList.add '/Alerts/removeNotification'        ['user_id']
+APIList.add '/Alerts/addAsFriend',              ['user_id']
+APIList.add '/Alerts/denyFriendship',           ['user_id']
+APIList.add '/Alerts/removeNotification',       ['user_id']
 
 
 #Search
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
-APIList.add '/PlurkSearch/search'               ['query']
-APIList.add '/UserSearch/search'                ['query']
+APIList.add '/PlurkSearch/search',              ['query']
+APIList.add '/UserSearch/search',               ['query']
 
 #Emoticons
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
@@ -89,23 +89,23 @@ APIList.add '/Emoticons/get'
 #Blocks
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
 APIList.add '/Blocks/get'
-APIList.add '/Blocks/block'                     ['user_id']
-APIList.add '/Blocks/unblock'                   ['unblock']
+APIList.add '/Blocks/block',                    ['user_id']
+APIList.add '/Blocks/unblock',                  ['unblock']
 
 #Cliques'
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
 APIList.add '/Cliques/getCliques'
-APIList.add '/Cliques/getClique'                ['clique_name']
-APIList.add '/Cliques/createClique'             ['clique_name']
-APIList.add '/Cliques/renameClique'             ['clique_name', 'new_name']
-APIList.add '/Cliques/add'                      ['clique_name', 'user_id']
-APIList.add '/Cliques/remove'                   ['clique_name', 'user_id']
+APIList.add '/Cliques/getClique',               ['clique_name']
+APIList.add '/Cliques/createClique',            ['clique_name']
+APIList.add '/Cliques/renameClique',            ['clique_name', 'new_name']
+APIList.add '/Cliques/add',                     ['clique_name', 'user_id']
+APIList.add '/Cliques/remove',                  ['clique_name', 'user_id']
 
 #PlurkTop
 #          |--------API path-------------------|----------require parameter----------|-----default from config-----|----method default----|
 APIList.add '/PlurkTop/getCollections'
 APIList.add '/PlurkTop/getTopics'
-APIList.add '/PlurkTop/getPlurks'               ['collection_name']
+APIList.add '/PlurkTop/getPlurks',              ['collection_name']
 
 
 #OAuth Utilities
@@ -113,6 +113,6 @@ APIList.add '/PlurkTop/getPlurks'               ['collection_name']
 APIList.add '/checkToken'
 APIList.add '/expireToken'
 APIList.add '/checkTime'
-APIList.add '/echo'                             ['data']
+APIList.add '/echo',                            ['data']
 
 module.exports = APIList.get()

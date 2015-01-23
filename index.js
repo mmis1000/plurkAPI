@@ -1,2 +1,2 @@
-require('coffee-script/register');
-module.exports = require('./plurkapi.coffee')
+//require('coffee-script/register');
+module.exports = require('./plurkapi.js')
