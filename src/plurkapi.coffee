@@ -5,7 +5,7 @@ request = require 'request'
 querystring = require 'querystring'
 Url = require 'url'
 
-APIs = require './plurkapilist.coffee'
+APIs = require './plurkapilist.js'
 
 ###
   event : response     # new_response

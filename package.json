@@ -20,7 +20,12 @@
     "url": "https://github.com/mmis1000/plurkAPI/issues"
   },
   "homepage": "https://github.com/mmis1000/plurkAPI",
-  "dependencies": {
-    "coffee-script": "^1.8.0"
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "request": "^2.51.0",
+    "cheerio": "^0.18.0",
+    "ejs": "^2.2.3",
+    "express-helpers": "^1.3.1",
+    "js-beautify": "^1.5.4"
   }
 }

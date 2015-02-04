@@ -1,0 +1,1110 @@
+{
+  "apis": [
+    {
+      "path": "/APP/Users/me",
+      "method": "usersMe",
+      "methodShort": "me",
+      "docURL": "http://www.plurk.com/API#/APP/Users/me",
+      "require": {},
+      "optional": {},
+      "type": "Users",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Users/update",
+      "method": "usersUpdate",
+      "methodShort": "update",
+      "docURL": "http://www.plurk.com/API#/APP/Users/update",
+      "require": {},
+      "optional": {
+        "full_name": "Change full name.",
+        "email": "Change email.",
+        "display_name": "User's display name, can be empty and full unicode. Must be shorter than 15 characters.",
+        "privacy": "User's privacy settings. The option can be world (whole world can view the profile) or only_friends (only friends can view the profile).",
+        "date_of_birth": "Should be YYYY-MM-DD, example 1985-05-13."
+      },
+      "type": "Users",
+      "requires": [],
+      "optionals": [
+        "full_name",
+        "email",
+        "display_name",
+        "privacy",
+        "date_of_birth"
+      ]
+    },
+    {
+      "path": "/APP/Users/updatePicture",
+      "method": "usersUpdatePicture",
+      "methodShort": "updatePicture",
+      "docURL": "http://www.plurk.com/API#/APP/Users/updatePicture",
+      "require": {
+        "profile_image": "The new profile image."
+      },
+      "optional": {},
+      "type": "Users",
+      "requires": [
+        "profile_image"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Users/getKarmaStats",
+      "method": "usersGetKarmaStats",
+      "methodShort": "getKarmaStats",
+      "docURL": "http://www.plurk.com/API#/APP/Users/getKarmaStats",
+      "require": {},
+      "optional": {},
+      "type": "Users",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Profile/getOwnProfile",
+      "method": "profileGetOwnProfile",
+      "methodShort": "getOwnProfile",
+      "docURL": "http://www.plurk.com/API#/APP/Profile/getOwnProfile",
+      "require": {},
+      "optional": {},
+      "type": "Profile",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Profile/getPublicProfile",
+      "method": "profileGetPublicProfile",
+      "methodShort": "getPublicProfile",
+      "docURL": "http://www.plurk.com/API#/APP/Profile/getPublicProfile",
+      "require": {
+        "user_id": "The user_id of the public profile. Can be integer (like 34) or nick name (like amix)."
+      },
+      "optional": {},
+      "type": "Profile",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Realtime/getUserChannel",
+      "method": "realtimeGetUserChannel",
+      "methodShort": "getUserChannel",
+      "docURL": "http://www.plurk.com/API#/APP/Realtime/getUserChannel",
+      "require": {},
+      "optional": {},
+      "type": "Real time notifications",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Polling/getPlurks",
+      "method": "pollingGetPlurks",
+      "methodShort": "getPlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Polling/getPlurks",
+      "require": {
+        "offset": "Return plurks newer than offset, formatted as 2009-6-20T21:55:34."
+      },
+      "optional": {
+        "limit": "The max number of plurks to be returned (default: 20)",
+        "favorers_detail": ", limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details"
+      },
+      "type": "Polling",
+      "requires": [
+        "offset"
+      ],
+      "optionals": [
+        "limit",
+        "favorers_detail"
+      ]
+    },
+    {
+      "path": "/APP/Polling/getUnreadCount",
+      "method": "pollingGetUnreadCount",
+      "methodShort": "getUnreadCount",
+      "docURL": "http://www.plurk.com/API#/APP/Polling/getUnreadCount",
+      "require": {},
+      "optional": {},
+      "type": "Polling",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/getPlurk",
+      "method": "timelineGetPlurk",
+      "methodShort": "getPlurk",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/getPlurk",
+      "require": {
+        "plurk_id": "The unique id of the plurk. Should be passed as a number, and not base 36 encoded."
+      },
+      "optional": {
+        "favorers_detail": "If true, detailed users information about all favorers of this plurk will be included into \"plurk_users\"",
+        "limited_detail": "If true, detailed users information about recepients of this plurk will be included into \"plurk_users\" (if this plurk is private)",
+        "replurkers_detail": "If true, detailed users information about all replurkers of this plurk will be included into \"plurk_users\""
+      },
+      "type": "Timeline",
+      "requires": [
+        "plurk_id"
+      ],
+      "optionals": [
+        "favorers_detail",
+        "limited_detail",
+        "replurkers_detail"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/getPlurks",
+      "method": "timelineGetPlurks",
+      "methodShort": "getPlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/getPlurks",
+      "require": {},
+      "optional": {
+        "offset": "Return plurks older than offset, formatted as 2009-6-20T21:55:34.",
+        "limit": "How many plurks should be returned? Default is 20.",
+        "filter": "Can be my, responded, private or favorite",
+        "favorers_detail": "If true, detailed users information about all favorers of all plurks will be included into \"plurk_users\"",
+        "limited_detail": "If true, detailed users information about all private plurks' recepients will be included into \"plurk_users\"",
+        "replurkers_detail": "If true, detailed users information about all replurkers of all plurks will be included into \"plurk_users\""
+      },
+      "type": "Timeline",
+      "requires": [],
+      "optionals": [
+        "offset",
+        "limit",
+        "filter",
+        "favorers_detail",
+        "limited_detail",
+        "replurkers_detail"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/getUnreadPlurks",
+      "method": "timelineGetUnreadPlurks",
+      "methodShort": "getUnreadPlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/getUnreadPlurks",
+      "require": {},
+      "optional": {
+        "offset": "Return plurks older than offset, formatted as 2009-6-20T21:55:34.",
+        "limit": "Limit the number of plurks that is returned",
+        "filter": "Limit the plurks returned, could be 'my', 'responded', 'private' or 'favorite' (default: 'all')",
+        "favorers_detail": ", limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details"
+      },
+      "type": "Timeline",
+      "requires": [],
+      "optionals": [
+        "offset",
+        "limit",
+        "filter",
+        "favorers_detail"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/getPublicPlurks",
+      "method": "timelineGetPublicPlurks",
+      "methodShort": "getPublicPlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/getPublicPlurks",
+      "require": {
+        "user_id": "The user_id of the public plurks owner to get. Can be integer (like 34) or nick name (like amix)."
+      },
+      "optional": {
+        "offset": "Return plurks older than offset, formatted as 2009-6-20T21:55:34.",
+        "limit": "Limit the number of plurks that is retunred (default: 20)",
+        "favorers_detail": ", limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details"
+      },
+      "type": "Timeline",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": [
+        "offset",
+        "limit",
+        "favorers_detail"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/plurkAdd",
+      "method": "timelinePlurkAdd",
+      "methodShort": "plurkAdd",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/plurkAdd",
+      "require": {
+        "content": "The Plurk's text.",
+        "qualifier": "The Plurk's qualifier, must be in English. Can be following: loves likes shares gives hates wants has will asks wishes was feels thinks says is : freestyle hopes needs wonders"
+      },
+      "optional": {
+        "limited_to": "Limit the plurk only to some users (also known as private plurking). limited_to should be a JSON list of friend ids, e.g. limited_to of [3,4,66,34] will only be plurked to these user ids. If limited_to is [0] then the Plurk is privatley posted to the poster's friends.",
+        "no_comments": "If set to 1, then responses are disabled for this plurk. If set to 2, then only friends can respond to this plurk.",
+        "lang": "The plurk's language. Can be following: 'en': 'English' 'pt_BR': 'Português' 'cn': '中文 (中国)' 'ca': 'Català' 'el': 'Ελληνικά' 'dk': 'Dansk' 'de': 'Deutsch' 'es': 'Español' 'sv': 'Svenska' 'nb': 'Norsk bokmål' 'hi': 'Hindi' 'ro': 'Română' 'hr': 'Hrvatski' 'fr': 'Français' 'ru': 'Pусский' 'it': 'Italiano ' 'ja': '日本語' 'he': 'עברית' 'hu': 'Magyar' 'ne': 'Nederlands' 'th': 'ไทย' 'ta_fp': 'Filipino' 'in': 'Bahasa Indonesia' 'pl': 'Polski' 'ar': 'العربية' 'fi': 'Finnish' 'tr_ch': '中文 (繁體中文)' 'tr': 'Türkçe' 'ga': 'Gaeilge' 'sk': 'Slovenský' 'uk': 'українська' 'fa': 'فارسی"
+      },
+      "type": "Timeline",
+      "requires": [
+        "content",
+        "qualifier"
+      ],
+      "optionals": [
+        "limited_to",
+        "no_comments",
+        "lang"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/plurkDelete",
+      "method": "timelinePlurkDelete",
+      "methodShort": "plurkDelete",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/plurkDelete",
+      "require": {
+        "plurk_id": "The id of the plurk."
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "plurk_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/plurkEdit",
+      "method": "timelinePlurkEdit",
+      "methodShort": "plurkEdit",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/plurkEdit",
+      "require": {
+        "plurk_id": "The id of the plurk.",
+        "content": "The content of plurk."
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "plurk_id",
+        "content"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/toggleComments",
+      "method": "timelineToggleComments",
+      "methodShort": "toggleComments",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/toggleComments",
+      "require": {
+        "plurk_id": "The id of the plurk.",
+        "no_comments": "new no_comments value (0, 1 or 2)"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "plurk_id",
+        "no_comments"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/mutePlurks",
+      "method": "timelineMutePlurks",
+      "methodShort": "mutePlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/mutePlurks",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/unmutePlurks",
+      "method": "timelineUnmutePlurks",
+      "methodShort": "unmutePlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/unmutePlurks",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/favoritePlurks",
+      "method": "timelineFavoritePlurks",
+      "methodShort": "favoritePlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/favoritePlurks",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/unfavoritePlurks",
+      "method": "timelineUnfavoritePlurks",
+      "methodShort": "unfavoritePlurks",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/unfavoritePlurks",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/replurk",
+      "method": "timelineReplurk",
+      "methodShort": "replurk",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/replurk",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/unreplurk",
+      "method": "timelineUnreplurk",
+      "methodShort": "unreplurk",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/unreplurk",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/markAsRead",
+      "method": "timelineMarkAsRead",
+      "methodShort": "markAsRead",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/markAsRead",
+      "require": {
+        "ids": "The plurk ids, formated as JSON, e.g. [342,23242,2323]"
+      },
+      "optional": {
+        "note_position": "If true responses_seen of the plurks will be updated as well (to match response_count)."
+      },
+      "type": "Timeline",
+      "requires": [
+        "ids"
+      ],
+      "optionals": [
+        "note_position"
+      ]
+    },
+    {
+      "path": "/APP/Timeline/uploadPicture",
+      "method": "timelineUploadPicture",
+      "methodShort": "uploadPicture",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/uploadPicture",
+      "require": {
+        "image": "The image file."
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "image"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Timeline/reportAbuse",
+      "method": "timelineReportAbuse",
+      "methodShort": "reportAbuse",
+      "docURL": "http://www.plurk.com/API#/APP/Timeline/reportAbuse",
+      "require": {
+        "plurk_id": "The plurk id to be reported as abuse.",
+        "categoty": "type of abuse. should be one of the following: porn, spam, privacy, violence, others."
+      },
+      "optional": {},
+      "type": "Timeline",
+      "requires": [
+        "plurk_id",
+        "categoty"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Responses/get",
+      "method": "responsesGet",
+      "methodShort": "get",
+      "docURL": "http://www.plurk.com/API#/APP/Responses/get",
+      "require": {
+        "plurk_id": "The plurk that the responses belong to."
+      },
+      "optional": {
+        "from_response": "Only fetch responses from an offset - could be 5, 10 or 15 (default: 0)"
+      },
+      "type": "Responses",
+      "requires": [
+        "plurk_id"
+      ],
+      "optionals": [
+        "from_response"
+      ]
+    },
+    {
+      "path": "/APP/Responses/responseAdd",
+      "method": "responsesResponseAdd",
+      "methodShort": "responseAdd",
+      "docURL": "http://www.plurk.com/API#/APP/Responses/responseAdd",
+      "require": {
+        "plurk_id": "The plurk that the responses should be added to.",
+        "content": "The response's text.",
+        "qualifier": "The Plurk's qualifier, must be in English. Can be following: loves likes shares gives hates wants has will asks wishes was feels thinks says is : freestyle hopes needs wonders"
+      },
+      "optional": {},
+      "type": "Responses",
+      "requires": [
+        "plurk_id",
+        "content",
+        "qualifier"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Responses/responseDelete",
+      "method": "responsesResponseDelete",
+      "methodShort": "responseDelete",
+      "docURL": "http://www.plurk.com/API#/APP/Responses/responseDelete",
+      "require": {
+        "response_id": "The id of the response to delete.",
+        "plurk_id": "The plurk that the response belongs to."
+      },
+      "optional": {},
+      "type": "Responses",
+      "requires": [
+        "response_id",
+        "plurk_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/FriendsFans/getFriendsByOffset",
+      "method": "friendsFansGetFriendsByOffset",
+      "methodShort": "getFriendsByOffset",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/getFriendsByOffset",
+      "require": {
+        "user_id": ""
+      },
+      "optional": {
+        "offset": "The offset, can be 10, 20, 30 etc.",
+        "limit": "The max number of friends to be returned (default 10)."
+      },
+      "type": "Friends and fans",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": [
+        "offset",
+        "limit"
+      ]
+    },
+    {
+      "path": "/APP/FriendsFans/getFansByOffset",
+      "method": "friendsFansGetFansByOffset",
+      "methodShort": "getFansByOffset",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/getFansByOffset",
+      "require": {
+        "user_id": ""
+      },
+      "optional": {
+        "offset": "The offset, can be 10, 20, 30 etc.",
+        "limit": "The max number of fans to be returned (default 10)."
+      },
+      "type": "Friends and fans",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": [
+        "offset",
+        "limit"
+      ]
+    },
+    {
+      "path": "/APP/FriendsFans/getFollowingByOffset",
+      "method": "friendsFansGetFollowingByOffset",
+      "methodShort": "getFollowingByOffset",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/getFollowingByOffset",
+      "require": {},
+      "optional": {
+        "offset": "The offset, can be 10, 20, 30 etc.",
+        "limit": "The max number of followings to be returned (default 10)."
+      },
+      "type": "Friends and fans",
+      "requires": [],
+      "optionals": [
+        "offset",
+        "limit"
+      ]
+    },
+    {
+      "path": "/APP/FriendsFans/becomeFriend",
+      "method": "friendsFansBecomeFriend",
+      "methodShort": "becomeFriend",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/becomeFriend",
+      "require": {
+        "friend_id": "The ID of the user you want to befriend."
+      },
+      "optional": {},
+      "type": "Friends and fans",
+      "requires": [
+        "friend_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/FriendsFans/removeAsFriend",
+      "method": "friendsFansRemoveAsFriend",
+      "methodShort": "removeAsFriend",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/removeAsFriend",
+      "require": {
+        "friend_id": "The ID of the user you want to remove"
+      },
+      "optional": {},
+      "type": "Friends and fans",
+      "requires": [
+        "friend_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/FriendsFans/becomeFan",
+      "method": "friendsFansBecomeFan",
+      "methodShort": "becomeFan",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/becomeFan",
+      "require": {
+        "fan_id": "The ID of the user you want to become fan of"
+      },
+      "optional": {},
+      "type": "Friends and fans",
+      "requires": [
+        "fan_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/FriendsFans/setFollowing",
+      "method": "friendsFansSetFollowing",
+      "methodShort": "setFollowing",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/setFollowing",
+      "require": {
+        "user_id": "The ID of the user you want to follow/unfollow",
+        "follow": "true if the user should be followed, and false if the user should be unfollowed."
+      },
+      "optional": {},
+      "type": "Friends and fans",
+      "requires": [
+        "user_id",
+        "follow"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/FriendsFans/getCompletion",
+      "method": "friendsFansGetCompletion",
+      "methodShort": "getCompletion",
+      "docURL": "http://www.plurk.com/API#/APP/FriendsFans/getCompletion",
+      "require": {},
+      "optional": {},
+      "type": "Friends and fans",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/getActive",
+      "method": "alertsGetActive",
+      "methodShort": "getActive",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/getActive",
+      "require": {},
+      "optional": {},
+      "type": "Alerts",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/getHistory",
+      "method": "alertsGetHistory",
+      "methodShort": "getHistory",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/getHistory",
+      "require": {},
+      "optional": {},
+      "type": "Alerts",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/addAsFan",
+      "method": "alertsAddAsFan",
+      "methodShort": "addAsFan",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/addAsFan",
+      "require": {
+        "user_id": "The user_id that has asked for friendship."
+      },
+      "optional": {},
+      "type": "Alerts",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/addAllAsFan",
+      "method": "alertsAddAllAsFan",
+      "methodShort": "addAllAsFan",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/addAllAsFan",
+      "require": {},
+      "optional": {},
+      "type": "Alerts",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/addAllAsFriends",
+      "method": "alertsAddAllAsFriends",
+      "methodShort": "addAllAsFriends",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/addAllAsFriends",
+      "require": {},
+      "optional": {},
+      "type": "Alerts",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/addAsFriend",
+      "method": "alertsAddAsFriend",
+      "methodShort": "addAsFriend",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/addAsFriend",
+      "require": {
+        "user_id": "The user_id that has asked for friendship."
+      },
+      "optional": {},
+      "type": "Alerts",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/denyFriendship",
+      "method": "alertsDenyFriendship",
+      "methodShort": "denyFriendship",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/denyFriendship",
+      "require": {
+        "user_id": "The user_id that has asked for friendship."
+      },
+      "optional": {},
+      "type": "Alerts",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Alerts/removeNotification",
+      "method": "alertsRemoveNotification",
+      "methodShort": "removeNotification",
+      "docURL": "http://www.plurk.com/API#/APP/Alerts/removeNotification",
+      "require": {
+        "user_id": "The user_id that the current user has requested friendship for."
+      },
+      "optional": {},
+      "type": "Alerts",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/PlurkSearch/search",
+      "method": "plurkSearchSearch",
+      "methodShort": "search",
+      "docURL": "http://www.plurk.com/API#/APP/PlurkSearch/search",
+      "require": {
+        "query": "The query after Plurks."
+      },
+      "optional": {
+        "offset": "A plurk_id of the oldest Plurk in the last search result."
+      },
+      "type": "Search",
+      "requires": [
+        "query"
+      ],
+      "optionals": [
+        "offset"
+      ]
+    },
+    {
+      "path": "/APP/UserSearch/search",
+      "method": "userSearchSearch",
+      "methodShort": "search",
+      "docURL": "http://www.plurk.com/API#/APP/UserSearch/search",
+      "require": {
+        "query": "The query after users."
+      },
+      "optional": {
+        "offset": "Page offset, like 10, 20, 30 etc."
+      },
+      "type": "Search",
+      "requires": [
+        "query"
+      ],
+      "optionals": [
+        "offset"
+      ]
+    },
+    {
+      "path": "/APP/Emoticons/get",
+      "method": "emoticonsGet",
+      "methodShort": "get",
+      "docURL": "http://www.plurk.com/API#/APP/Emoticons/get",
+      "require": {},
+      "optional": {},
+      "type": "Emoticons",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Blocks/get",
+      "method": "blocksGet",
+      "methodShort": "get",
+      "docURL": "http://www.plurk.com/API#/APP/Blocks/get",
+      "require": {},
+      "optional": {
+        "offset": "What page should be shown, e.g. 0, 10, 20."
+      },
+      "type": "Blocks",
+      "requires": [],
+      "optionals": [
+        "offset"
+      ]
+    },
+    {
+      "path": "/APP/Blocks/block",
+      "method": "blocksBlock",
+      "methodShort": "block",
+      "docURL": "http://www.plurk.com/API#/APP/Blocks/block",
+      "require": {
+        "user_id": "The id of the user that should be blocked."
+      },
+      "optional": {},
+      "type": "Blocks",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Blocks/unblock",
+      "method": "blocksUnblock",
+      "methodShort": "unblock",
+      "docURL": "http://www.plurk.com/API#/APP/Blocks/unblock",
+      "require": {
+        "user_id": "The id of the user that should be unblocked."
+      },
+      "optional": {},
+      "type": "Blocks",
+      "requires": [
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/getCliques",
+      "method": "cliquesGetCliques",
+      "methodShort": "getCliques",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/getCliques",
+      "require": {},
+      "optional": {},
+      "type": "Cliques",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/getClique",
+      "method": "cliquesGetClique",
+      "methodShort": "getClique",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/getClique",
+      "require": {
+        "clique_name": "The name of the new clique"
+      },
+      "optional": {},
+      "type": "Cliques",
+      "requires": [
+        "clique_name"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/createClique",
+      "method": "cliquesCreateClique",
+      "methodShort": "createClique",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/createClique",
+      "require": {
+        "clique_name": "The name of the new clique"
+      },
+      "optional": {},
+      "type": "Cliques",
+      "requires": [
+        "clique_name"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/renameClique",
+      "method": "cliquesRenameClique",
+      "methodShort": "renameClique",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/renameClique",
+      "require": {
+        "clique_name": "The name of the clique to rename",
+        "new_name": "The name of the new clique"
+      },
+      "optional": {},
+      "type": "Cliques",
+      "requires": [
+        "clique_name",
+        "new_name"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/add",
+      "method": "cliquesAdd",
+      "methodShort": "add",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/add",
+      "require": {
+        "clique_name": "The name of the clique",
+        "user_id": "The user to add to the clique"
+      },
+      "optional": {},
+      "type": "Cliques",
+      "requires": [
+        "clique_name",
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/Cliques/remove",
+      "method": "cliquesRemove",
+      "methodShort": "remove",
+      "docURL": "http://www.plurk.com/API#/APP/Cliques/remove",
+      "require": {
+        "clique_name": "The name of the clique",
+        "user_id": "The user to remove from the clique"
+      },
+      "optional": {},
+      "type": "Cliques",
+      "requires": [
+        "clique_name",
+        "user_id"
+      ],
+      "optionals": []
+    },
+    {
+      "path": "/APP/PlurkTop/getCollections",
+      "method": "plurkTopGetCollections",
+      "methodShort": "getCollections",
+      "docURL": "http://www.plurk.com/API#/APP/PlurkTop/getCollections",
+      "require": {},
+      "optional": {},
+      "type": "PlurkTop",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/PlurkTop/getTopics",
+      "method": "plurkTopGetTopics",
+      "methodShort": "getTopics",
+      "docURL": "http://www.plurk.com/API#/APP/PlurkTop/getTopics",
+      "require": {},
+      "optional": {
+        "lang": "get topics for specified lang (default: en)"
+      },
+      "type": "PlurkTop",
+      "requires": [],
+      "optionals": [
+        "lang"
+      ]
+    },
+    {
+      "path": "/APP/PlurkTop/getPlurks",
+      "method": "plurkTopGetPlurks",
+      "methodShort": "getPlurks",
+      "docURL": "http://www.plurk.com/API#/APP/PlurkTop/getPlurks",
+      "require": {
+        "collection_name": "only get plurks in specified collection"
+      },
+      "optional": {
+        "offset": "offset of Plurks in PlurkTop, should be an float, e.g. 0.99.",
+        "limit": "number of plurks returned (default: 30)",
+        "sorting": "the way to sort plurks in PlurkTop, can be \"hot\" for sorting by popularity or \"new\" for posted time.",
+        "topic_filter": "only show topic with this id (default: null)"
+      },
+      "type": "PlurkTop",
+      "requires": [
+        "collection_name"
+      ],
+      "optionals": [
+        "offset",
+        "limit",
+        "sorting",
+        "topic_filter"
+      ]
+    },
+    {
+      "path": "/APP/checkToken",
+      "method": "checkToken",
+      "methodShort": "",
+      "docURL": "http://www.plurk.com/API#/APP/checkToken",
+      "require": {},
+      "optional": {},
+      "type": "OAuth Utilities",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/expireToken",
+      "method": "expireToken",
+      "methodShort": "",
+      "docURL": "http://www.plurk.com/API#/APP/expireToken",
+      "require": {},
+      "optional": {},
+      "type": "OAuth Utilities",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/checkTime",
+      "method": "checkTime",
+      "methodShort": "",
+      "docURL": "http://www.plurk.com/API#/APP/checkTime",
+      "require": {},
+      "optional": {},
+      "type": "OAuth Utilities",
+      "requires": [],
+      "optionals": []
+    },
+    {
+      "path": "/APP/echo",
+      "method": "echo",
+      "methodShort": "",
+      "docURL": "http://www.plurk.com/API#/APP/echo",
+      "require": {
+        "data": ""
+      },
+      "optional": {},
+      "type": "OAuth Utilities",
+      "requires": [
+        "data"
+      ],
+      "optionals": []
+    }
+  ],
+  "classes": {
+    "Users": [
+      "usersMe",
+      "usersUpdate",
+      "usersUpdatePicture",
+      "usersGetKarmaStats"
+    ],
+    "Profile": [
+      "profileGetOwnProfile",
+      "profileGetPublicProfile"
+    ],
+    "Real time notifications": [
+      "realtimeGetUserChannel"
+    ],
+    "Polling": [
+      "pollingGetPlurks",
+      "pollingGetUnreadCount"
+    ],
+    "Timeline": [
+      "timelineGetPlurk",
+      "timelineGetPlurks",
+      "timelineGetUnreadPlurks",
+      "timelineGetPublicPlurks",
+      "timelinePlurkAdd",
+      "timelinePlurkDelete",
+      "timelinePlurkEdit",
+      "timelineToggleComments",
+      "timelineMutePlurks",
+      "timelineUnmutePlurks",
+      "timelineFavoritePlurks",
+      "timelineUnfavoritePlurks",
+      "timelineReplurk",
+      "timelineUnreplurk",
+      "timelineMarkAsRead",
+      "timelineUploadPicture",
+      "timelineReportAbuse"
+    ],
+    "Responses": [
+      "responsesGet",
+      "responsesResponseAdd",
+      "responsesResponseDelete"
+    ],
+    "Friends and fans": [
+      "friendsFansGetFriendsByOffset",
+      "friendsFansGetFansByOffset",
+      "friendsFansGetFollowingByOffset",
+      "friendsFansBecomeFriend",
+      "friendsFansRemoveAsFriend",
+      "friendsFansBecomeFan",
+      "friendsFansSetFollowing",
+      "friendsFansGetCompletion"
+    ],
+    "Alerts": [
+      "alertsGetActive",
+      "alertsGetHistory",
+      "alertsAddAsFan",
+      "alertsAddAllAsFan",
+      "alertsAddAllAsFriends",
+      "alertsAddAsFriend",
+      "alertsDenyFriendship",
+      "alertsRemoveNotification"
+    ],
+    "Search": [
+      "plurkSearchSearch",
+      "userSearchSearch"
+    ],
+    "Emoticons": [
+      "emoticonsGet"
+    ],
+    "Blocks": [
+      "blocksGet",
+      "blocksBlock",
+      "blocksUnblock"
+    ],
+    "Cliques": [
+      "cliquesGetCliques",
+      "cliquesGetClique",
+      "cliquesCreateClique",
+      "cliquesRenameClique",
+      "cliquesAdd",
+      "cliquesRemove"
+    ],
+    "PlurkTop": [
+      "plurkTopGetCollections",
+      "plurkTopGetTopics",
+      "plurkTopGetPlurks"
+    ],
+    "OAuth Utilities": [
+      "checkToken",
+      "expireToken",
+      "checkTime",
+      "echo"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title> api reference </title>
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/css/bootstrap-theme.css">
+    
+    
+  </head>
+  <body>
+    <!-- method overview start -->
+    
+    <div>
+      <h2> method overview </h2>
+      <blockquote>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>method</th><th>require</th><th>optional</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+        <% for (className in classes) {%>
+          <tr class="info">
+            <td>
+              <%= className %>
+            </td>
+            <td>
+              requires
+            </td>
+            <td>
+              optionals
+            </td>
+          </tr>
+          <% classes[className].forEach(function(apiName){ 
+            var api = apis.filter(function(api){return apiName === api.method})[0];
+          %>
+            <tr>
+              <td>
+                <%- link_to( api.method, "#" + api.method) %>
+              </td>
+              <td>
+                <%= api.requires.join(", ") %>
+              </td>
+              <td>
+                <%= api.optionals.join(", ")  %>
+              </td>
+            </tr>
+          <% }); %>
+        <% } %>
+        </tbody>
+        
+      </table>
+      </blockquote>
+    </div>
+    
+    <!-- method overview end -->
+    
+    <!-- methods start here -->
+    
+    <% apis.forEach(function(api){ %>
+      <div name="<%= api.method %>" id="<%= api.method %>">
+        <h3>
+          api path : <span> <%- link_to( api.path, api.docURL )  %> </span>
+        </h3>
+      <blockquote>
+        <div class="example">
+          <h4>example</h4>
+          <pre><code><span>api.<%= api.method %>( <%= !api.requires.length ? "" : api.requires.join(", ") + ", " %> {optional : parameter}, function(err, data, res) {
+  console.log(err, data, res);
+}</span>
+          </code></pre>
+        </div>
+        
+        <% if (api.requires.length) { %>
+          <div class="require">
+          <h4>Require parameters</h4>
+          <ul>
+          <% for (var key in api.require) { %>
+            <li>
+              <span><%= key %></span> : <span><%= api.require[key] %></span>
+            </li>
+          <% } %>
+          </ul>
+          </div>
+        <% } %>
+        
+        <% if (api.optionals.length) { %>
+          <div class="optional">
+          <h4>Optional parameters</h4>
+          <ul>
+          <% for (var key in api.optional) { %>
+            <li>
+              <span><%= key %></span> : <span><%= api.optional[key] %></span>
+            </li>
+          <% } %>
+          </ul>
+          </div>
+        <% } %>
+        
+      </blockquote>
+      </div>
+    <% }); %>
+    
+    <!-- methods end here -->
+    
+    <!-- scripts -->
+    
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.min.js"></script>
+    
+  </body>
+</html>

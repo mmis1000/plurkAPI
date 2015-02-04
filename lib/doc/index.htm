@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <title> api reference </title>
+    <!-- styles -->
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/css/bootstrap-theme.css"> </head>
+
+<body>
+    <div>
+        <h2> method overview </h2>
+        <blockquote>
+            <table>
+                <thead>
+                    <tr>
+                        <th>method</th>
+                        <th>require</th>
+                        <th>optional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <a href='#usersMe'>usersMe</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#usersUpdate'>usersUpdate</a> </td>
+                        <td> </td>
+                        <td> full_name, email, display_name, privacy, date_of_birth </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#usersUpdatePicture'>usersUpdatePicture</a> </td>
+                        <td> profile_image </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#usersGetKarmaStats'>usersGetKarmaStats</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#profileGetOwnProfile'>profileGetOwnProfile</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#profileGetPublicProfile'>profileGetPublicProfile</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#realtimeGetUserChannel'>realtimeGetUserChannel</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#pollingGetPlurks'>pollingGetPlurks</a> </td>
+                        <td> offset </td>
+                        <td> limit, favorers_detail </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#pollingGetUnreadCount'>pollingGetUnreadCount</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineGetPlurk'>timelineGetPlurk</a> </td>
+                        <td> plurk_id </td>
+                        <td> favorers_detail, limited_detail, replurkers_detail </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineGetPlurks'>timelineGetPlurks</a> </td>
+                        <td> </td>
+                        <td> offset, limit, filter, favorers_detail, limited_detail, replurkers_detail </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineGetUnreadPlurks'>timelineGetUnreadPlurks</a> </td>
+                        <td> </td>
+                        <td> offset, limit, filter, favorers_detail </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineGetPublicPlurks'>timelineGetPublicPlurks</a> </td>
+                        <td> user_id </td>
+                        <td> offset, limit, favorers_detail </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelinePlurkAdd'>timelinePlurkAdd</a> </td>
+                        <td> content, qualifier </td>
+                        <td> limited_to, no_comments, lang </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelinePlurkDelete'>timelinePlurkDelete</a> </td>
+                        <td> plurk_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelinePlurkEdit'>timelinePlurkEdit</a> </td>
+                        <td> plurk_id, content </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineToggleComments'>timelineToggleComments</a> </td>
+                        <td> plurk_id, no_comments </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineMutePlurks'>timelineMutePlurks</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineUnmutePlurks'>timelineUnmutePlurks</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineFavoritePlurks'>timelineFavoritePlurks</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineUnfavoritePlurks'>timelineUnfavoritePlurks</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineReplurk'>timelineReplurk</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineUnreplurk'>timelineUnreplurk</a> </td>
+                        <td> ids </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineMarkAsRead'>timelineMarkAsRead</a> </td>
+                        <td> ids </td>
+                        <td> note_position </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineUploadPicture'>timelineUploadPicture</a> </td>
+                        <td> image </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#timelineReportAbuse'>timelineReportAbuse</a> </td>
+                        <td> plurk_id, categoty </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#responsesGet'>responsesGet</a> </td>
+                        <td> plurk_id </td>
+                        <td> from_response </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#responsesResponseAdd'>responsesResponseAdd</a> </td>
+                        <td> plurk_id, content, qualifier </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#responsesResponseDelete'>responsesResponseDelete</a> </td>
+                        <td> response_id, plurk_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansGetFriendsByOffset'>friendsFansGetFriendsByOffset</a> </td>
+                        <td> user_id </td>
+                        <td> offset, limit </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansGetFansByOffset'>friendsFansGetFansByOffset</a> </td>
+                        <td> user_id </td>
+                        <td> offset, limit </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansGetFollowingByOffset'>friendsFansGetFollowingByOffset</a> </td>
+                        <td> </td>
+                        <td> offset, limit </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansBecomeFriend'>friendsFansBecomeFriend</a> </td>
+                        <td> friend_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansRemoveAsFriend'>friendsFansRemoveAsFriend</a> </td>
+                        <td> friend_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansBecomeFan'>friendsFansBecomeFan</a> </td>
+                        <td> fan_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansSetFollowing'>friendsFansSetFollowing</a> </td>
+                        <td> user_id, follow </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#friendsFansGetCompletion'>friendsFansGetCompletion</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsGetActive'>alertsGetActive</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsGetHistory'>alertsGetHistory</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsAddAsFan'>alertsAddAsFan</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsAddAllAsFan'>alertsAddAllAsFan</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsAddAllAsFriends'>alertsAddAllAsFriends</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsAddAsFriend'>alertsAddAsFriend</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsDenyFriendship'>alertsDenyFriendship</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#alertsRemoveNotification'>alertsRemoveNotification</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#plurkSearchSearch'>plurkSearchSearch</a> </td>
+                        <td> query </td>
+                        <td> offset </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#userSearchSearch'>userSearchSearch</a> </td>
+                        <td> query </td>
+                        <td> offset </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#emoticonsGet'>emoticonsGet</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#blocksGet'>blocksGet</a> </td>
+                        <td> </td>
+                        <td> offset </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#blocksBlock'>blocksBlock</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#blocksUnblock'>blocksUnblock</a> </td>
+                        <td> user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesGetCliques'>cliquesGetCliques</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesGetClique'>cliquesGetClique</a> </td>
+                        <td> clique_name </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesCreateClique'>cliquesCreateClique</a> </td>
+                        <td> clique_name </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesRenameClique'>cliquesRenameClique</a> </td>
+                        <td> clique_name, new_name </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesAdd'>cliquesAdd</a> </td>
+                        <td> clique_name, user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#cliquesRemove'>cliquesRemove</a> </td>
+                        <td> clique_name, user_id </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#plurkTopGetCollections'>plurkTopGetCollections</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#plurkTopGetTopics'>plurkTopGetTopics</a> </td>
+                        <td> </td>
+                        <td> lang </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#plurkTopGetPlurks'>plurkTopGetPlurks</a> </td>
+                        <td> collection_name </td>
+                        <td> offset, limit, sorting, topic_filter </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#checkToken'>checkToken</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#expireToken'>expireToken</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#checkTime'>checkTime</a> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td> <a href='#echo'>echo</a> </td>
+                        <td> data </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </blockquote>
+    </div>
+    <div name="usersMe" id="usersMe">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Users/me' >/APP/Users/me</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.usersMe(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="usersUpdate" id="usersUpdate">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Users/update' >/APP/Users/update</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.usersUpdate(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>full_name</span> : <span>Change full name.</span> </li>
+                    <li> <span>email</span> : <span>Change email.</span> </li>
+                    <li> <span>display_name</span> : <span>User&#39;s display name, can be empty and full unicode. Must be shorter than 15 characters.</span> </li>
+                    <li> <span>privacy</span> : <span>User&#39;s privacy settings. The option can be world (whole world can view the profile) or only_friends (only friends can view the profile).</span> </li>
+                    <li> <span>date_of_birth</span> : <span>Should be YYYY-MM-DD, example 1985-05-13.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="usersUpdatePicture" id="usersUpdatePicture">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Users/updatePicture' >/APP/Users/updatePicture</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.usersUpdatePicture( profile_image,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>profile_image</span> : <span>The new profile image.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="usersGetKarmaStats" id="usersGetKarmaStats">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Users/getKarmaStats' >/APP/Users/getKarmaStats</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.usersGetKarmaStats(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="profileGetOwnProfile" id="profileGetOwnProfile">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Profile/getOwnProfile' >/APP/Profile/getOwnProfile</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.profileGetOwnProfile(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="profileGetPublicProfile" id="profileGetPublicProfile">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Profile/getPublicProfile' >/APP/Profile/getPublicProfile</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.profileGetPublicProfile( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id of the public profile. Can be integer (like 34) or nick name (like amix).</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="realtimeGetUserChannel" id="realtimeGetUserChannel">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Realtime/getUserChannel' >/APP/Realtime/getUserChannel</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.realtimeGetUserChannel(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="pollingGetPlurks" id="pollingGetPlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Polling/getPlurks' >/APP/Polling/getPlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.pollingGetPlurks( offset,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>Return plurks newer than offset, formatted as 2009-6-20T21:55:34.</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>limit</span> : <span>The max number of plurks to be returned (default: 20)</span> </li>
+                    <li> <span>favorers_detail</span> : <span>, limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="pollingGetUnreadCount" id="pollingGetUnreadCount">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Polling/getUnreadCount' >/APP/Polling/getUnreadCount</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.pollingGetUnreadCount(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="timelineGetPlurk" id="timelineGetPlurk">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/getPlurk' >/APP/Timeline/getPlurk</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineGetPlurk( plurk_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The unique id of the plurk. Should be passed as a number, and not base 36 encoded.</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>favorers_detail</span> : <span>If true, detailed users information about all favorers of this plurk will be included into &quot;plurk_users&quot;</span> </li>
+                    <li> <span>limited_detail</span> : <span>If true, detailed users information about recepients of this plurk will be included into &quot;plurk_users&quot; (if this plurk is private)</span> </li>
+                    <li> <span>replurkers_detail</span> : <span>If true, detailed users information about all replurkers of this plurk will be included into &quot;plurk_users&quot;</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineGetPlurks" id="timelineGetPlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/getPlurks' >/APP/Timeline/getPlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineGetPlurks(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>Return plurks older than offset, formatted as 2009-6-20T21:55:34.</span> </li>
+                    <li> <span>limit</span> : <span>How many plurks should be returned? Default is 20.</span> </li>
+                    <li> <span>filter</span> : <span>Can be my, responded, private or favorite</span> </li>
+                    <li> <span>favorers_detail</span> : <span>If true, detailed users information about all favorers of all plurks will be included into &quot;plurk_users&quot;</span> </li>
+                    <li> <span>limited_detail</span> : <span>If true, detailed users information about all private plurks&#39; recepients will be included into &quot;plurk_users&quot;</span> </li>
+                    <li> <span>replurkers_detail</span> : <span>If true, detailed users information about all replurkers of all plurks will be included into &quot;plurk_users&quot;</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineGetUnreadPlurks" id="timelineGetUnreadPlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/getUnreadPlurks' >/APP/Timeline/getUnreadPlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineGetUnreadPlurks(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>Return plurks older than offset, formatted as 2009-6-20T21:55:34.</span> </li>
+                    <li> <span>limit</span> : <span>Limit the number of plurks that is returned</span> </li>
+                    <li> <span>filter</span> : <span>Limit the plurks returned, could be &#39;my&#39;, &#39;responded&#39;, &#39;private&#39; or &#39;favorite&#39; (default: &#39;all&#39;)</span> </li>
+                    <li> <span>favorers_detail</span> : <span>, limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineGetPublicPlurks" id="timelineGetPublicPlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/getPublicPlurks' >/APP/Timeline/getPublicPlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineGetPublicPlurks( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id of the public plurks owner to get. Can be integer (like 34) or nick name (like amix).</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>Return plurks older than offset, formatted as 2009-6-20T21:55:34.</span> </li>
+                    <li> <span>limit</span> : <span>Limit the number of plurks that is retunred (default: 20)</span> </li>
+                    <li> <span>favorers_detail</span> : <span>, limited_detail and replurkers_detail: See /APP/Timline/getPlurks for details</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelinePlurkAdd" id="timelinePlurkAdd">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/plurkAdd' >/APP/Timeline/plurkAdd</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelinePlurkAdd( content, qualifier,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>content</span> : <span>The Plurk&#39;s text.</span> </li>
+                    <li> <span>qualifier</span> : <span>The Plurk&#39;s qualifier, must be in English. Can be following: loves likes shares gives hates wants has will asks wishes was feels thinks says is : freestyle hopes needs wonders</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>limited_to</span> : <span>Limit the plurk only to some users (also known as private plurking). limited_to should be a JSON list of friend ids, e.g. limited_to of [3,4,66,34] will only be plurked to these user ids. If limited_to is [0] then the Plurk is privatley posted to the poster&#39;s friends.</span>                        </li>
+                    <li> <span>no_comments</span> : <span>If set to 1, then responses are disabled for this plurk. If set to 2, then only friends can respond to this plurk.</span> </li>
+                    <li> <span>lang</span> : <span>The plurk&#39;s language. Can be following: &#39;en&#39;: &#39;English&#39; &#39;pt_BR&#39;: &#39;Português&#39; &#39;cn&#39;: &#39;中文 (中国)&#39; &#39;ca&#39;: &#39;Català&#39; &#39;el&#39;: &#39;Ελληνικά&#39; &#39;dk&#39;: &#39;Dansk&#39; &#39;de&#39;: &#39;Deutsch&#39; &#39;es&#39;: &#39;Español&#39; &#39;sv&#39;: &#39;Svenska&#39; &#39;nb&#39;: &#39;Norsk bokmål&#39; &#39;hi&#39;: &#39;Hindi&#39; &#39;ro&#39;: &#39;Română&#39; &#39;hr&#39;: &#39;Hrvatski&#39; &#39;fr&#39;: &#39;Français&#39; &#39;ru&#39;: &#39;Pусский&#39; &#39;it&#39;: &#39;Italiano &#39; &#39;ja&#39;: &#39;日本語&#39; &#39;he&#39;: &#39;עברית&#39; &#39;hu&#39;: &#39;Magyar&#39; &#39;ne&#39;: &#39;Nederlands&#39; &#39;th&#39;: &#39;ไทย&#39; &#39;ta_fp&#39;: &#39;Filipino&#39; &#39;in&#39;: &#39;Bahasa Indonesia&#39; &#39;pl&#39;: &#39;Polski&#39; &#39;ar&#39;: &#39;العربية&#39; &#39;fi&#39;: &#39;Finnish&#39; &#39;tr_ch&#39;: &#39;中文 (繁體中文)&#39; &#39;tr&#39;: &#39;Türkçe&#39; &#39;ga&#39;: &#39;Gaeilge&#39; &#39;sk&#39;: &#39;Slovenský&#39; &#39;uk&#39;: &#39;українська&#39; &#39;fa&#39;: &#39;فارسی</span>                        </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelinePlurkDelete" id="timelinePlurkDelete">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/plurkDelete' >/APP/Timeline/plurkDelete</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelinePlurkDelete( plurk_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The id of the plurk.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelinePlurkEdit" id="timelinePlurkEdit">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/plurkEdit' >/APP/Timeline/plurkEdit</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelinePlurkEdit( plurk_id, content,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The id of the plurk.</span> </li>
+                    <li> <span>content</span> : <span>The content of plurk.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineToggleComments" id="timelineToggleComments">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/toggleComments' >/APP/Timeline/toggleComments</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineToggleComments( plurk_id, no_comments,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The id of the plurk.</span> </li>
+                    <li> <span>no_comments</span> : <span>new no_comments value (0, 1 or 2)</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineMutePlurks" id="timelineMutePlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/mutePlurks' >/APP/Timeline/mutePlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineMutePlurks( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineUnmutePlurks" id="timelineUnmutePlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/unmutePlurks' >/APP/Timeline/unmutePlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineUnmutePlurks( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineFavoritePlurks" id="timelineFavoritePlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/favoritePlurks' >/APP/Timeline/favoritePlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineFavoritePlurks( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineUnfavoritePlurks" id="timelineUnfavoritePlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/unfavoritePlurks' >/APP/Timeline/unfavoritePlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineUnfavoritePlurks( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineReplurk" id="timelineReplurk">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/replurk' >/APP/Timeline/replurk</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineReplurk( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineUnreplurk" id="timelineUnreplurk">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/unreplurk' >/APP/Timeline/unreplurk</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineUnreplurk( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineMarkAsRead" id="timelineMarkAsRead">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/markAsRead' >/APP/Timeline/markAsRead</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineMarkAsRead( ids,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>ids</span> : <span>The plurk ids, formated as JSON, e.g. [342,23242,2323]</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>note_position</span> : <span>If true responses_seen of the plurks will be updated as well (to match response_count).</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineUploadPicture" id="timelineUploadPicture">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/uploadPicture' >/APP/Timeline/uploadPicture</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineUploadPicture( image,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>image</span> : <span>The image file.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="timelineReportAbuse" id="timelineReportAbuse">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Timeline/reportAbuse' >/APP/Timeline/reportAbuse</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.timelineReportAbuse( plurk_id, categoty,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The plurk id to be reported as abuse.</span> </li>
+                    <li> <span>categoty</span> : <span>type of abuse. should be one of the following: porn, spam, privacy, violence, others.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="responsesGet" id="responsesGet">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Responses/get' >/APP/Responses/get</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.responsesGet( plurk_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The plurk that the responses belong to.</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>from_response</span> : <span>Only fetch responses from an offset - could be 5, 10 or 15 (default: 0)</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="responsesResponseAdd" id="responsesResponseAdd">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Responses/responseAdd' >/APP/Responses/responseAdd</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.responsesResponseAdd( plurk_id, content, qualifier,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>plurk_id</span> : <span>The plurk that the responses should be added to.</span> </li>
+                    <li> <span>content</span> : <span>The response&#39;s text.</span> </li>
+                    <li> <span>qualifier</span> : <span>The Plurk&#39;s qualifier, must be in English. Can be following: loves likes shares gives hates wants has will asks wishes was feels thinks says is : freestyle hopes needs wonders</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="responsesResponseDelete" id="responsesResponseDelete">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Responses/responseDelete' >/APP/Responses/responseDelete</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.responsesResponseDelete( response_id, plurk_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>response_id</span> : <span>The id of the response to delete.</span> </li>
+                    <li> <span>plurk_id</span> : <span>The plurk that the response belongs to.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansGetFriendsByOffset" id="friendsFansGetFriendsByOffset">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/getFriendsByOffset' >/APP/FriendsFans/getFriendsByOffset</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansGetFriendsByOffset( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span></span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>The offset, can be 10, 20, 30 etc.</span> </li>
+                    <li> <span>limit</span> : <span>The max number of friends to be returned (default 10).</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansGetFansByOffset" id="friendsFansGetFansByOffset">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/getFansByOffset' >/APP/FriendsFans/getFansByOffset</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansGetFansByOffset( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span></span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>The offset, can be 10, 20, 30 etc.</span> </li>
+                    <li> <span>limit</span> : <span>The max number of fans to be returned (default 10).</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansGetFollowingByOffset" id="friendsFansGetFollowingByOffset">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/getFollowingByOffset' >/APP/FriendsFans/getFollowingByOffset</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansGetFollowingByOffset(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>The offset, can be 10, 20, 30 etc.</span> </li>
+                    <li> <span>limit</span> : <span>The max number of followings to be returned (default 10).</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansBecomeFriend" id="friendsFansBecomeFriend">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/becomeFriend' >/APP/FriendsFans/becomeFriend</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansBecomeFriend( friend_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>friend_id</span> : <span>The ID of the user you want to befriend.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansRemoveAsFriend" id="friendsFansRemoveAsFriend">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/removeAsFriend' >/APP/FriendsFans/removeAsFriend</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansRemoveAsFriend( friend_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>friend_id</span> : <span>The ID of the user you want to remove</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansBecomeFan" id="friendsFansBecomeFan">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/becomeFan' >/APP/FriendsFans/becomeFan</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansBecomeFan( fan_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>fan_id</span> : <span>The ID of the user you want to become fan of</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansSetFollowing" id="friendsFansSetFollowing">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/setFollowing' >/APP/FriendsFans/setFollowing</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansSetFollowing( user_id, follow,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The ID of the user you want to follow/unfollow</span> </li>
+                    <li> <span>follow</span> : <span>true if the user should be followed, and false if the user should be unfollowed.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="friendsFansGetCompletion" id="friendsFansGetCompletion">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/FriendsFans/getCompletion' >/APP/FriendsFans/getCompletion</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.friendsFansGetCompletion(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="alertsGetActive" id="alertsGetActive">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/getActive' >/APP/Alerts/getActive</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsGetActive(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="alertsGetHistory" id="alertsGetHistory">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/getHistory' >/APP/Alerts/getHistory</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsGetHistory(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="alertsAddAsFan" id="alertsAddAsFan">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/addAsFan' >/APP/Alerts/addAsFan</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsAddAsFan( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id that has asked for friendship.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="alertsAddAllAsFan" id="alertsAddAllAsFan">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/addAllAsFan' >/APP/Alerts/addAllAsFan</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsAddAllAsFan(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="alertsAddAllAsFriends" id="alertsAddAllAsFriends">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/addAllAsFriends' >/APP/Alerts/addAllAsFriends</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsAddAllAsFriends(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="alertsAddAsFriend" id="alertsAddAsFriend">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/addAsFriend' >/APP/Alerts/addAsFriend</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsAddAsFriend( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id that has asked for friendship.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="alertsDenyFriendship" id="alertsDenyFriendship">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/denyFriendship' >/APP/Alerts/denyFriendship</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsDenyFriendship( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id that has asked for friendship.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="alertsRemoveNotification" id="alertsRemoveNotification">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Alerts/removeNotification' >/APP/Alerts/removeNotification</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.alertsRemoveNotification( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The user_id that the current user has requested friendship for.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="plurkSearchSearch" id="plurkSearchSearch">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/PlurkSearch/search' >/APP/PlurkSearch/search</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.plurkSearchSearch( query,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>query</span> : <span>The query after Plurks.</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>A plurk_id of the oldest Plurk in the last search result.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="userSearchSearch" id="userSearchSearch">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/UserSearch/search' >/APP/UserSearch/search</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.userSearchSearch( query,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>query</span> : <span>The query after users.</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>Page offset, like 10, 20, 30 etc.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="emoticonsGet" id="emoticonsGet">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Emoticons/get' >/APP/Emoticons/get</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.emoticonsGet(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="blocksGet" id="blocksGet">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Blocks/get' >/APP/Blocks/get</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.blocksGet(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>What page should be shown, e.g. 0, 10, 20.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="blocksBlock" id="blocksBlock">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Blocks/block' >/APP/Blocks/block</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.blocksBlock( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The id of the user that should be blocked.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="blocksUnblock" id="blocksUnblock">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Blocks/unblock' >/APP/Blocks/unblock</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.blocksUnblock( user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>user_id</span> : <span>The id of the user that should be unblocked.</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="cliquesGetCliques" id="cliquesGetCliques">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/getCliques' >/APP/Cliques/getCliques</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesGetCliques(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="cliquesGetClique" id="cliquesGetClique">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/getClique' >/APP/Cliques/getClique</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesGetClique( clique_name,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>clique_name</span> : <span>The name of the new clique</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="cliquesCreateClique" id="cliquesCreateClique">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/createClique' >/APP/Cliques/createClique</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesCreateClique( clique_name,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>clique_name</span> : <span>The name of the new clique</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="cliquesRenameClique" id="cliquesRenameClique">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/renameClique' >/APP/Cliques/renameClique</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesRenameClique( clique_name, new_name,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>clique_name</span> : <span>The name of the clique to rename</span> </li>
+                    <li> <span>new_name</span> : <span>The name of the new clique</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="cliquesAdd" id="cliquesAdd">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/add' >/APP/Cliques/add</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesAdd( clique_name, user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>clique_name</span> : <span>The name of the clique</span> </li>
+                    <li> <span>user_id</span> : <span>The user to add to the clique</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="cliquesRemove" id="cliquesRemove">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/Cliques/remove' >/APP/Cliques/remove</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.cliquesRemove( clique_name, user_id,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>clique_name</span> : <span>The name of the clique</span> </li>
+                    <li> <span>user_id</span> : <span>The user to remove from the clique</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="plurkTopGetCollections" id="plurkTopGetCollections">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/PlurkTop/getCollections' >/APP/PlurkTop/getCollections</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.plurkTopGetCollections(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="plurkTopGetTopics" id="plurkTopGetTopics">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/PlurkTop/getTopics' >/APP/PlurkTop/getTopics</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.plurkTopGetTopics(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>lang</span> : <span>get topics for specified lang (default: en)</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="plurkTopGetPlurks" id="plurkTopGetPlurks">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/PlurkTop/getPlurks' >/APP/PlurkTop/getPlurks</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.plurkTopGetPlurks( collection_name,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>collection_name</span> : <span>only get plurks in specified collection</span> </li>
+                </ul>
+            </div>
+            <div class="optional">
+                <h4>Optional parameters</h4>
+                <ul>
+                    <li> <span>offset</span> : <span>offset of Plurks in PlurkTop, should be an float, e.g. 0.99.</span> </li>
+                    <li> <span>limit</span> : <span>number of plurks returned (default: 30)</span> </li>
+                    <li> <span>sorting</span> : <span>the way to sort plurks in PlurkTop, can be &quot;hot&quot; for sorting by popularity or &quot;new&quot; for posted time.</span> </li>
+                    <li> <span>topic_filter</span> : <span>only show topic with this id (default: null)</span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <div name="checkToken" id="checkToken">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/checkToken' >/APP/checkToken</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.checkToken(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="expireToken" id="expireToken">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/expireToken' >/APP/expireToken</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.expireToken(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="checkTime" id="checkTime">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/checkTime' >/APP/checkTime</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.checkTime(  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+        </blockquote>
+    </div>
+    <div name="echo" id="echo">
+        <h3>
+
+          api path : <span> <a href='http://www.plurk.com/API#/APP/echo' >/APP/echo</a> </span>
+
+        </h3>
+        <blockquote>
+            <div class="example">
+                <h4>example</h4> <pre><code><span>api.echo( data,  {optional : parameter}, function(err, data, res) {
+
+  console.log(err, data, res);
+
+}</span>
+
+          </code></pre> </div>
+            <div class="require">
+                <h4>Require parameters</h4>
+                <ul>
+                    <li> <span>data</span> : <span></span> </li>
+                </ul>
+            </div>
+        </blockquote>
+    </div>
+    <!-- scripts -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.min.js"></script>
+</body>
+
+</html>
