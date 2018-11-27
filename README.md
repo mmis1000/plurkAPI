@@ -1,4 +1,7 @@
 # plurkAPI
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/mmis1000/plurkAPI.svg)](https://greenkeeper.io/)
+
 an unofficial plurk api lib
 
 ===
